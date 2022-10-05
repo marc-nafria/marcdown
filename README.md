@@ -18,3 +18,5 @@ Type `marcdown <path_to_file>` and view yor **Marckdown** document in the Termin
 
 ![imagen](https://user-images.githubusercontent.com/104323247/194100073-428cfdde-7c33-430d-8cd7-f382bc288003.png)
 
+![image](https://user-images.githubusercontent.com/104323247/194126848-2daa6ab0-9d53-49a9-ba4f-e490229d5e85.png)
+
