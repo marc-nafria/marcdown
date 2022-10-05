@@ -74,7 +74,7 @@ std::string outCode() {
 }
 
 void resetOutputFormat() {
-    colorFG(fg), colorBG(bg);
+    std::cout << outColorFG(fg) << outColorBG(bg);
     normal();
 }
 
