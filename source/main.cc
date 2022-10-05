@@ -43,6 +43,7 @@ void printPage(int num_page) {
     // bottom status line
     colorFG(bg), colorBG(fg);
     cout << endl <<  " Page " << num_page + 1 << " of " << pages.size() << " ";
+    cout << "n(ext), p(revious), q(uit): ";
     colorFG(fg), colorBG(bg);
 }
 void printUsage() {
