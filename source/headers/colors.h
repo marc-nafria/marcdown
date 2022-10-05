@@ -15,8 +15,8 @@ void bold();
 void normal();
 
 std::string outBold();
-
 std::string outNormal();
+std::string outCode();
 
 void resetOutputFormat();
 

@@ -26,7 +26,9 @@ Block::Block(const string &inputLine, int width) {
     // detect comment
     else if (inputLine[0] == '>') {
         line = line.substr(2, line.length() - 2);
+        
         content = comment(line, width, height);
+        inline_format(content);
         // line = line.substr(2, line.length() - 2);
         // content = outColorFG(orange) + line;
         // height = line.length() / width + 1;
@@ -134,16 +136,23 @@ string Block::check_inline_format (char &c) {
         else if (!blockState.N2) {
             blockState.N1 = false;
             blockState.N2 = true;
-            return outColorFG(red);
+            return outBold();
         }
         else {
             blockState.N1 = false;
             blockState.N2 = false;
-            return outColorFG(fg);
+            return outNormal();
         }
         return "";
     }
     else blockState.N1 = false;
+
+    // pel que fa a codi
+    if (c == '`') {
+        blockState.IC = !blockState.IC;
+        if (blockState.IC) return outCode();
+        return outColorBG(bg);
+    }
 
     return string(1, c);
 }

@@ -29,28 +29,28 @@ void colorBG(int color) {
 
 std::string outColorFG (int color) {
     if (color == bg)
-        return "\033[38;2;46;52;64m";
+        return "\033[30m";
     else if (color == fg)
-        return "\033[38;2;216;222;233m";
+        return "\033[37m";
     else if (color == blue)
-        return "\033[38;2;129;161;193m";
+        return "\033[34m";
     else if (color == red)
-        return "\033[38;2;191;97;106m";
+        return "\033[31m";
     else if (color == orange)
-        return "\033[38;2;208;125;112m";
+        return "\033[91m";
     return "";
 }
 std::string outColorBG (int color) {
     if (color == bg)
         return "\033[49m";
     else if (color == fg)
-        return "\033[48;2;216;222;233m";
+        return "\033[47m";
     else if (color == blue)
-        return "\033[48;2;129;161;193m";
+        return "\033[44m";
     else if (color == red)
-        return "\033[48;2;191;97;106m";
+        return "\033[41m";
     else if (color == orange)
-        return "\033[48;2;208;125;112m";
+        return "\033[101m";
     return "";
 }
 
@@ -67,6 +67,10 @@ std::string outBold() {
 
 std::string outNormal() {
     return "\033[22m";
+}
+
+std::string outCode() {
+    return "\033[100m";
 }
 
 void resetOutputFormat() {
