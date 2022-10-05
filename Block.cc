@@ -105,3 +105,4 @@ string comment (string line, int w, int &height) {
     height = line.length() / (w - 8) + 1;
     return result;
 }
+

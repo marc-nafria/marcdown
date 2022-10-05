@@ -1,6 +1,6 @@
 #include <iostream>
-#include "colors.h"
 using namespace std;
+#include "colors.h"
 
 class Block {
     public:
