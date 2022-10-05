@@ -5,7 +5,7 @@
 #include <vector>
 #include <fstream>
 
-#include "Block.h"
+#include "headers/Block.h"
 
 using namespace std;
 
@@ -45,12 +45,17 @@ void printPage(int num_page) {
     cout << endl <<  " Page " << num_page + 1 << " of " << pages.size() << " ";
     colorFG(fg), colorBG(bg);
 }
+void printUsage() {
+    exit(0);
+}
 
 int main (int argc, char* argv[]) {
     // decide if filename or default file
-    filename = "hola";
-    if (argc > 1)
-        filename = argv[1];
+    if (argc <= 1)
+        printUsage();
+    
+    // get filename from input
+    filename = argv[1];
     
     // get console buffer size
     getConsoleBufferSize();

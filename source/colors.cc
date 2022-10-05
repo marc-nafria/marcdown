@@ -1,4 +1,4 @@
-#include "colors.h"
+#include "headers/colors.h"
 
 // ouput---------------------
 void colorFG(int color) {

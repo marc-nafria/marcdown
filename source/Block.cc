@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string.h>
-#include "Block.h"
+#include "headers/Block.h"
 using namespace std;
 
 string comment (string line, int w, int &height);
