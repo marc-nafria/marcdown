@@ -2,9 +2,11 @@
 A Markdown terminal viewer
 
 ## Usage
+
 Type `marcdown <path_to_file>` and view yor **Marckdown** document in the Terminal!
 
 ## Supported Formats
+
 + **Headers**: insert headers with the prefix '# Example'. To ident more use as much '#' as you want
 + **Bold**: converts from `**example**` to **example**
 + **Lists**: insert lists using the prefix `+ example`. To ident more use as much '+' as you want.
