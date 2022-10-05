@@ -56,8 +56,9 @@ Block::Block(const string &inputLine, int width) {
     }
     // detect paragraf
     else {
-        content = line;
+        inline_format(line);
         height = line.length() / width + 1;
+        content = line;
     }
 }
 
@@ -106,3 +107,43 @@ string comment (string line, int w, int &height) {
     return result;
 }
 
+void Block::inline_format(string &line) {
+    string result = "";
+    for (int i = 0; i < line.length(); ++i) {
+        result += check_inline_format(line[i]);
+    }
+    line = result;
+}
+
+string Block::check_inline_format (char &c) {
+    // mirem si s'ha de analitzar o no
+    if (blockState.backslash) {
+        blockState.backslash = false;
+        return string(1, c);
+    }
+
+    // pel que fa a caracter especial 
+    if (c == '\\') {
+        blockState.backslash = true;
+        return "";
+    }
+
+    // pel que fa a la negreta
+    if (c == '*') {
+        if (!blockState.N1) blockState.N1 = true;
+        else if (!blockState.N2) {
+            blockState.N1 = false;
+            blockState.N2 = true;
+            return outColorFG(red);
+        }
+        else {
+            blockState.N1 = false;
+            blockState.N2 = false;
+            return outColorFG(fg);
+        }
+        return "";
+    }
+    else blockState.N1 = false;
+
+    return string(1, c);
+}
