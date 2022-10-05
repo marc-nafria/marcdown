@@ -70,7 +70,7 @@ std::string outNormal() {
 }
 
 std::string outCode() {
-    return "\033[100m";
+    return "\033[100m ";
 }
 
 void resetOutputFormat() {

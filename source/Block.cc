@@ -46,6 +46,7 @@ Block::Block(const string &inputLine, int width) {
         content += "·" + line;
         len += line.length() + 1;
         height = len / width + 1;
+        inline_format(content);
     }
     
     // detect separator
@@ -151,7 +152,7 @@ string Block::check_inline_format (char &c) {
     if (c == '`') {
         blockState.IC = !blockState.IC;
         if (blockState.IC) return outCode();
-        return outColorBG(bg);
+        return " " + outColorBG(bg);
     }
 
     return string(1, c);
