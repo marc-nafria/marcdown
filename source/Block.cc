@@ -26,7 +26,7 @@ Block::Block(const string &inputLine, int width, const options &outputOptions) {
     // detect comment
     else if (inputLine[0] == '>') {
         line = line.substr(2, line.length() - 2);
-        
+        blockState.C = true;
         content = comment(line, width, height);
         inline_format(content, outputOptions);
         // line = line.substr(2, line.length() - 2);
@@ -144,6 +144,10 @@ string Block::check_inline_format (char &c, const options &outputOptions) {
         else {
             blockState.N1 = false;
             blockState.N2 = false;
+            if (outputOptions.boldAsColor && blockState.C)
+                return outColorFG(orange);
+            if (outputOptions.boldAsColor)
+                return outColorFG(fg);
             return outNormal();
         }
         return "";
