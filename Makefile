@@ -3,7 +3,7 @@ all: marcdown clean
 marcdown: main.o Block.o colors.o
 	g++ -o marcdown main.o Block.o colors.o
 
-main.o: source/main.cc source/headers/Block.h
+main.o: source/main.cc source/headers/Block.h source/headers/consoleInfo.h
 	g++ -c source/main.cc -I source/headers/
 
 Block.o: source/Block.cc source/headers/Block.h source/headers/colors.h

@@ -65,14 +65,14 @@ Block::Block(const string &inputLine, int width) {
     }
 }
 
-void Block::write() {
+void Block::write() const {
     resetOutputFormat();
     cout << content;
     resetOutputFormat();
     cout << endl;
 }
 
-int Block::getHeight() {
+int Block::getHeight() const {
     return height;
 }
 

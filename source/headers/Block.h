@@ -21,8 +21,8 @@ struct state {
 class Block {
     public:
         Block (const string &inputLine, int width);
-        void write();
-        int getHeight();
+        void write() const;
+        int getHeight() const;
     private:
         int height;
         void inline_format(string &line);
