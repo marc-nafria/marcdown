@@ -5,7 +5,7 @@ using namespace std;
 
 string comment (string line, int w, int &height);
 
-Block::Block(const string &inputLine, int width) {
+Block::Block(const string &inputLine, int width, const options &outputOptions) {
     string line = inputLine;
     int len = 0;
 
@@ -28,7 +28,7 @@ Block::Block(const string &inputLine, int width) {
         line = line.substr(2, line.length() - 2);
         
         content = comment(line, width, height);
-        inline_format(content);
+        inline_format(content, outputOptions);
         // line = line.substr(2, line.length() - 2);
         // content = outColorFG(orange) + line;
         // height = line.length() / width + 1;
@@ -46,7 +46,7 @@ Block::Block(const string &inputLine, int width) {
         content += "·" + line;
         len += line.length() + 1;
         height = len / width + 1;
-        inline_format(content);
+        inline_format(content, outputOptions);
     }
     
     // detect separator
@@ -59,14 +59,13 @@ Block::Block(const string &inputLine, int width) {
     }
     // detect paragraf
     else {
-        inline_format(line);
+        inline_format(line, outputOptions);
         height = line.length() / width + 1;
         content = line;
     }
 }
 
 void Block::write() const {
-    resetOutputFormat();
     cout << content;
     resetOutputFormat();
     cout << endl;
@@ -110,15 +109,15 @@ string comment (string line, int w, int &height) {
     return result;
 }
 
-void Block::inline_format(string &line) {
+void Block::inline_format(string &line, const options &outputOptions) {
     string result = "";
     for (int i = 0; i < line.length(); ++i) {
-        result += check_inline_format(line[i]);
+        result += check_inline_format(line[i], outputOptions);
     }
     line = result;
 }
 
-string Block::check_inline_format (char &c) {
+string Block::check_inline_format (char &c, const options &outputOptions) {
     // mirem si s'ha de analitzar o no
     if (blockState.backslash) {
         blockState.backslash = false;
@@ -137,6 +136,8 @@ string Block::check_inline_format (char &c) {
         else if (!blockState.N2) {
             blockState.N1 = false;
             blockState.N2 = true;
+            if (outputOptions.boldAsColor)
+                return outColorFG(orange);
             return outBold();
         }
         else {
