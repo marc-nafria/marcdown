@@ -21,10 +21,11 @@ Type `marcdown <path_to_file>` and view yor **Marckdown** document in the Termin
 
 ## Screenshots
 
-![image](https://user-images.githubusercontent.com/104323247/194111115-d0d9d187-09f6-4ddf-b8ab-64ce9dd8b417.png)
 
 ![imagen](https://user-images.githubusercontent.com/104323247/194100073-428cfdde-7c33-430d-8cd7-f382bc288003.png)
 
 ![image](https://user-images.githubusercontent.com/104323247/194126848-2daa6ab0-9d53-49a9-ba4f-e490229d5e85.png)
 
-**djfwrg** 
+![imagen](https://user-images.githubusercontent.com/104323247/194357780-c222ac86-7595-4501-84eb-e28ab4d9d377.png)
+
+![imagen](https://user-images.githubusercontent.com/104323247/194358086-866eff62-861b-4c13-b881-7f11c773ba39.png)
