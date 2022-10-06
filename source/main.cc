@@ -17,14 +17,16 @@ using namespace std;
 
 void printPage(const vector<vector<Block> > &pages, const int &num_page,
  const string &filename, const int &width, const int &height) {
+    
     system("clear");
     
-    colorFG(bg), colorBG(fg);
+    cout << outColorFG(bg) << outColorBG(fg);
     cout << " Marcdown: " << filename;
     for (int i = filename.length() + 11; i < width; ++i)
         cout << " ";
     cout << endl << endl;
-    
+    cout << outColorFG(fg) << outColorBG(bg);
+
     int current_row = 2;
     for (int i = 0; i < pages[num_page].size(); ++i) {
         pages[num_page][i].write(); // write block
@@ -36,10 +38,10 @@ void printPage(const vector<vector<Block> > &pages, const int &num_page,
         cout << endl;
     
     // bottom status line
-    colorFG(bg), colorBG(fg);
-    cout << endl <<  " Page " << num_page + 1 << " of " << pages.size() << " ";
-    cout << "n(ext), p(revious), q(uit): ";
-    colorFG(fg), colorBG(bg);
+    cout << outColorFG(bg) << outColorBG(fg);
+    cout << endl <<  " [Page " << num_page + 1 << " of " << pages.size() << "] ";
+    cout << "OPTION [n(ext), p(revious), q(uit)]: ";
+    cout << outColorFG(fg) << outColorBG(bg);
 }
 
 vector<vector<Block> > readFile(string filename, vector<vector<Block> > &pages, int &total_pages,
@@ -47,7 +49,6 @@ vector<vector<Block> > readFile(string filename, vector<vector<Block> > &pages, 
  options outputOptions) {
     fstream file;
     file.open(filename);
-    // if file not open return mk block saying something happened
 
     // variables needes for reading
     string line;

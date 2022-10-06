@@ -66,6 +66,7 @@ Block::Block(const string &inputLine, int width, const options &outputOptions) {
 }
 
 void Block::write() const {
+    resetOutputFormat();
     cout << content;
     resetOutputFormat();
     cout << endl;
